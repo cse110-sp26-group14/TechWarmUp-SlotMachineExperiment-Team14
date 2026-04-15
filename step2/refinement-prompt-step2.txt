@@ -1,0 +1,2 @@
+Allow users to choose the bet amount. Once the user runs out of tokens, provide a reset button to play again. Provide plentiful, quality comments in all code files. Fix any glitches like extra waiting time. Make the AI itself visually appealing and easy to use. Add a different comical line at the bottom of each spin. Define a win condition/threshold. Include clear comments for each core functions. Do not ask for any improvements or add any new technologies.
+
