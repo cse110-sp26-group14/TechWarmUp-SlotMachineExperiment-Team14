@@ -5,7 +5,7 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
     color: #333;
 }
 
@@ -13,54 +13,58 @@ body {
     background-color: #fff;
     border: 2px solid #ccc;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); /* Stronger shadow */
     text-align: center;
+    width: 350px; /* Fixed width for better control */
 }
 
 h1 {
     color: #007bff;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Adjusted margin */
+    font-size: 2.2em; /* Slightly larger heading */
 }
 
 .display-area {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
-    font-size: 1.2em;
+    margin-bottom: 25px; /* Adjusted margin */
+    font-size: 1.3em; /* Slightly larger font */
     font-weight: bold;
+    color: #555;
 }
 
 .reels {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 15px; /* Increased gap */
+    margin-bottom: 35px; /* Adjusted margin */
 }
 
 .reel {
     width: 90px;
     height: 90px;
-    border: 2px solid #007bff;
-    border-radius: 5px;
+    border: 3px solid #007bff; /* Thicker border */
+    border-radius: 8px; /* Slightly more rounded */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
+    font-size: 3.5em; /* Larger symbols */
     background-color: #e0f7fa;
     color: #007bff;
-    overflow: hidden; /* Hide overflowing symbols during animation */
-    position: relative; /* Needed for absolute positioning of symbols */
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
 }
 
 /* Animation for spinning effect */
 @keyframes spin {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); } /* Move symbols up */
+    100% { transform: translateY(-100%); }
 }
 
 .reel.spinning::before {
-    content: attr(data-spin-content); /* Use data attribute for spinning symbols */
+    content: attr(data-spin-content);
     position: absolute;
     top: 100%;
     left: 0;
@@ -69,27 +73,36 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: spin 0.1s linear infinite; /* Adjust speed as needed */
+    animation: spin 0.1s linear infinite;
 }
 
 .controls {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Adjusted margin */
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 10px; /* Gap between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 button {
-    padding: 10px 20px;
-    margin: 0 5px;
-    font-size: 1em;
+    padding: 12px 25px; /* Increased padding */
+    margin: 0; /* Remove individual margins as gap handles it */
+    font-size: 1.1em; /* Slightly larger font */
     cursor: pointer;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Add transform for click feedback */
 }
 
 button:hover {
     background-color: #218838;
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+button:active {
+    transform: translateY(1px); /* Push down on click */
 }
 
 button#bet-decrease, button#bet-increase {
@@ -101,9 +114,28 @@ button#bet-decrease:hover, button#bet-increase:hover {
     background-color: #e0a800;
 }
 
+/* Style for the new Reset button */
+button#reset-button {
+    background-color: #6c757d; /* Grey color */
+}
+
+button#reset-button:hover {
+    background-color: #5a6268;
+}
+
 .message {
     font-size: 1.1em;
     color: #dc3545;
-    min-height: 1.5em; /* Reserve space to prevent layout shifts */
+    min-height: 1.5em;
+    margin-bottom: 15px; /* Spacing below game message */
+}
+
+/* Style for the new comical line */
+.comical-line {
+    font-size: 1em;
+    color: #6f42c1; /* Purple color */
+    font-style: italic;
+    min-height: 1.5em; /* Reserve space */
+    margin-top: 10px;
 }
 
