@@ -7,11 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const winAmountSpan = document.getElementById('winAmount');
     const messageLog = document.getElementById('message-log');
     const comicalLine = document.getElementById('comical-line');
-    const betOptions = document.querySelector('.bet-options');
+    const increaseBetButton = document.getElementById('increaseBet');
+    const decreaseBetButton = document.getElementById('decreaseBet');
+    const betAmountSpan = document.getElementById('betAmount');
 
     // --- Game Configuration ---
     const symbols = ['🤖', '🧠', '⚡️', '💡', '🔥', '🧑‍💻'];
     const initialTokens = 1000;
+    const minBet = 5;
+    const maxBet = 50;
+    const betStep = 5;
     const winMultipliers = {
         '🤖🤖🤖': 100,
         '🧠🧠🧠': 50,
@@ -33,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Game State ---
     let tokens = initialTokens;
+    let currentBet = 10;
     let isSpinning = false;
 
     // --- Functions ---
@@ -63,12 +69,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
+     * Updates the bet amount in the UI.
+     * @param {number} amount - The new bet amount.
+     */
+    function updateBetAmount(amount) {
+        currentBet = amount;
+        betAmountSpan.textContent = currentBet;
+    }
+
+    /**
+     * Increases the bet amount.
+     */
+    function increaseBet() {
+        if (currentBet < maxBet) {
+            updateBetAmount(currentBet + betStep);
+        } else {
+            logMessage(`Maximum bet is ${maxBet}.`);
+        }
+    }
+
+    /**
+     * Decreases the bet amount.
+     */
+    function decreaseBet() {
+        if (currentBet > minBet) {
+            updateBetAmount(currentBet - betStep);
+        } else {
+            logMessage(`Minimum bet is ${minBet}.`);
+        }
+    }
+
+    /**
      * Handles the spinning of the reels.
      */
     function spin() {
         if (isSpinning) return;
 
-        const betAmount = parseInt(document.querySelector('input[name="bet"]:checked').value);
+        const betAmount = currentBet;
 
         if (tokens < betAmount) {
             logMessage("Not enough tokens to spin!");
@@ -83,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         logMessage('');
         showComicalLine();
         spinButton.disabled = true;
-        betOptions.style.pointerEvents = 'none'; // Disable bet selection during spin
+        increaseBetButton.disabled = true;
+        decreaseBetButton.disabled = true;
 
         reels.forEach(reel => {
             reel.classList.add('spinning');
@@ -101,7 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (index === reels.length - 1) {
                     checkWin(spinResult, betAmount);
                     spinButton.disabled = false;
-                    betOptions.style.pointerEvents = 'auto'; // Re-enable bet selection
+                    increaseBetButton.disabled = false;
+                    decreaseBetButton.disabled = false;
                     isSpinning = false;
 
                     if (tokens < betAmount) {
@@ -144,19 +183,24 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function resetGame() {
         updateTokenCount(initialTokens);
+        updateBetAmount(10);
         logMessage('Welcome back! Good luck!');
         winAmountSpan.textContent = 0;
         comicalLine.textContent = '';
         spinButton.style.display = 'block';
         resetButton.style.display = 'none';
         spinButton.disabled = false;
-        betOptions.style.pointerEvents = 'auto';
+        increaseBetButton.disabled = false;
+        decreaseBetButton.disabled = false;
     }
 
     // --- Event Listeners ---
     spinButton.addEventListener('click', spin);
     resetButton.addEventListener('click', resetGame);
+    increaseBetButton.addEventListener('click', increaseBet);
+    decreaseBetButton.addEventListener('click', decreaseBet);
 
     // --- Initial Setup ---
     updateTokenCount(tokens);
+    updateBetAmount(currentBet);
 });

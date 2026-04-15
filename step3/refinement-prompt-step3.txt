@@ -1,1 +1,1 @@
-*Insert Here*
+Allow the user to change their bet amount using clearly labeled increment (+) and decrement (−) buttons. The bet should increase or decrease by a fixed step of 5 tokens per click, with a minimum bet of 5 tokens and a maximum bet of 50 tokens. If the user attempts to go below the minimum or above the maximum, display an informative message and prevent the change.
