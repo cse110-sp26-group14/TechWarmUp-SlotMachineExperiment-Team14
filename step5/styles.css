@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d0f1c; /* Deep navy */
+    color: #e0e1dd;
+    margin: 0;
+}
+
+h1 {
+    color: #ff00ff; /* Vibrant magenta */
+    text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.slot-machine {
+    background: linear-gradient(145deg, #1a1c2a, #2a2d40);
+    border: 3px solid #00ffff; /* Glowing cyan */
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 0 15px #00ffff, 0 0 35px #00ffff, inset 0 0 10px #00ffff;
+    width: 400px;
+}
+
+.reels {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    background: #0a0b12;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.reel {
+    width: 100px;
+    height: 100px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    background: radial-gradient(circle, #2d3047, #1a1c29);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3), inset 0 0 8px rgba(0, 255, 255, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.reel.spinning {
+    animation: spin-glow 0.1s linear infinite;
+}
+
+@keyframes spin-glow {
+    0% { transform: translateY(-15px); text-shadow: 0 0 10px #ff00ff; }
+    50% { text-shadow: 0 0 20px #00ffff; }
+    100% { transform: translateY(15px); text-shadow: 0 0 10px #ff00ff; }
+}
+
+.controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bet-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.bet-amount {
+    font-size: 22px;
+    margin: 0 20px;
+    font-weight: 700;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+#increaseBet,
+#decreaseBet {
+    background: #4b0082; /* Indigo */
+    border: 2px solid #ff00ff;
+    color: #e0e1dd;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px #ff00ff;
+}
+
+#increaseBet:hover,
+#decreaseBet:hover {
+    background: #8a2be2; /* Blue violet */
+    box-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+    transform: scale(1.1);
+}
+
+#spinButton, #resetButton {
+    background: linear-gradient(45deg, #ff00ff, #8a2be2);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px #ff00ff;
+}
+
+
+#resetButton {
+    background: linear-gradient(45deg, #ffc107, #ff8c00);
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px #ffc107;
+}
+
+#spinButton:hover, #resetButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px #ff00ff;
+}
+
+#resetButton:hover {
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px #ffc107;
+}
+
+
+#spinButton:disabled {
+    background: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.stats p {
+    margin: 0;
+}
+
+#tokenCount, #winAmount {
+    color: #00ff9d;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00ff9d;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    height: 22px;
+    font-size: 1.1rem;
+    color: #ffc107;
+    text-shadow: 0 0 5px #ffc107;
+}
+
+.comical-line {
+    text-align: center;
+    margin-top: 10px;
+    height: 20px;
+    color: #00bcd4;
+    font-style: italic;
+    text-shadow: 0 0 5px #00bcd4;
+}
