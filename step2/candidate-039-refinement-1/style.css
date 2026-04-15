@@ -1,0 +1,126 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main container for the game */
+#game-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title styling */
+h1 {
+    color: #333;
+}
+
+/* Token display styling */
+#token-display {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Slot machine container styling */
+#slot-machine {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Reel styling */
+.reel {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #333;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    background-color: #fafafa;
+}
+
+/* Message display styling */
+#message-display {
+    margin-bottom: 20px;
+}
+
+#win-loss-message {
+    font-size: 1.2em;
+    font-weight: bold;
+    min-height: 1.5em;
+}
+
+#comical-line {
+    font-style: italic;
+    color: #555;
+    min-height: 1.2em;
+}
+
+/* Controls container styling */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Bet controls styling */
+#bet-controls {
+    margin-bottom: 15px;
+}
+
+/* General button styling */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Bet button styling */
+.bet-button {
+    background-color: #a0a0a0;
+    color: white;
+    margin: 0 5px;
+}
+
+.bet-button.selected {
+    background-color: #4CAF50; /* Green to indicate selection */
+}
+
+/* Spin button styling */
+#spin-button {
+    background-color: #4CAF50;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#spin-button:hover {
+    background-color: #45a049;
+}
+
+/* Reset button styling */
+#reset-button {
+    background-color: #f44336;
+    color: white;
+}
+
+#reset-button:hover {
+    background-color: #e53935;
+}
+
+/* Class to hide elements */
+.hidden {
+    display: none;
+}
