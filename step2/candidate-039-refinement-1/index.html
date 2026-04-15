@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Slot Machine</h1>
+
+        <div id="token-display">
+            <span>Tokens: </span><span id="token-count">500</span>
+        </div>
+
+        <div id="slot-machine">
+            <div class="reel" id="reel1">🍒</div>
+            <div class="reel" id="reel2">🍋</div>
+            <div class="reel" id="reel3">🍊</div>
+        </div>
+
+        <div id="message-display">
+            <p id="win-loss-message">Good luck!</p>
+            <p id="comical-line"></p>
+        </div>
+
+        <div id="controls">
+            <div id="bet-controls">
+                <button class="bet-button" data-bet="10">Bet 10</button>
+                <button class="bet-button" data-bet="25">Bet 25</button>
+                <button class="bet-button" data-bet="50">Bet 50</button>
+            </div>
+            <button id="spin-button">Spin</button>
+            <button id="reset-button" class="hidden">Reset Game</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
