@@ -15,11 +15,10 @@
             <div class="reel"></div>
         </div>
         <div class="controls">
-            <div class="bet-options">
-                <span>Bet:</span>
-                <label><input type="radio" name="bet" value="10" checked> 10</label>
-                <label><input type="radio" name="bet" value="20"> 20</label>
-                <label><input type="radio" name="bet" value="50"> 50</label>
+            <div class="bet-control">
+                <button id="decreaseBet">−</button>
+                <span class="bet-amount">Bet: <span id="betAmount">10</span></span>
+                <button id="increaseBet">+</button>
             </div>
             <button id="spinButton">Spin</button>
             <button id="resetButton" style="display: none;">Play Again</button>

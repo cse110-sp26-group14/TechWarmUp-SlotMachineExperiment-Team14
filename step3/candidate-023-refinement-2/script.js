@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const SYMBOL_HEIGHT = 120; // Must match CSS .reel .symbol height
     const SPIN_DURATION_MS = 500; // Base spin time
     const REEL_SPIN_DELAY_MS = 100; // Delay between each reel stopping
+    const MIN_BET = 5;
+    const MAX_BET = 50;
+    const BET_STEP = 5;
 
     // --- DOM Elements ---
     // Getting references to all the necessary HTML elements to interact with them.
@@ -44,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Game State ---
     // These variables track the current state of the game.
     let tokens = 1000;
-    let betAmount = 50;
+    let betAmount = 5;
     let isSpinning = false;
 
     // --- Initialization ---
@@ -61,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add event listeners to the buttons.
         spinButton.addEventListener('click', handleSpin);
-        betUpButton.addEventListener('click', () => changeBet(50));
-        betDownButton.addEventListener('click', () => changeBet(-50));
+        betUpButton.addEventListener('click', () => changeBet(BET_STEP));
+        betDownButton.addEventListener('click', () => changeBet(-BET_STEP));
     };
 
     // --- UI Update Functions ---
@@ -71,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tokenBalanceEl.textContent = tokens;
         betAmountEl.textContent = betAmount;
 
-        const canAffordMinBet = tokens >= 50;
+        const canAffordMinBet = tokens >= MIN_BET;
         if (!canAffordMinBet) {
             spinButton.textContent = "Reset"; // If out of tokens, the button becomes a reset.
         } else {
@@ -80,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Disable buttons during a spin or if the bet is invalid.
         spinButton.disabled = isSpinning;
-        betUpButton.disabled = isSpinning || !canAffordMinBet || (betAmount + 50) > tokens;
-        betDownButton.disabled = isSpinning || !canAffordMinBet || (betAmount - 50) < 50;
+        betUpButton.disabled = isSpinning || !canAffordMinBet || (betAmount + BET_STEP) > MAX_BET;
+        betDownButton.disabled = isSpinning || !canAffordMinBet || (betAmount - BET_STEP) < MIN_BET;
     };
 
     // This function displays a message to the user (e.g., win/lose).
@@ -95,17 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const changeBet = (amount) => {
         if (isSpinning) return;
         const newBet = betAmount + amount;
-        // The bet must be at least 50 and not more than the current tokens.
-        if (newBet >= 50 && newBet <= tokens) {
+
+        if (newBet < MIN_BET) {
+            showMessage(`Minimum bet is ${MIN_BET} tokens.`, 'info');
+            return;
+        }
+        if (newBet > MAX_BET) {
+            showMessage(`Maximum bet is ${MAX_BET} tokens.`, 'info');
+            return;
+        }
+
+        if (newBet <= tokens) {
             betAmount = newBet;
             updateDisplays();
+        } else {
+            showMessage("Not enough tokens for that bet!", 'lose');
         }
     };
 
     // This function resets the game to its initial state.
     const resetGame = () => {
         tokens = 1000;
-        betAmount = 50;
+        betAmount = MIN_BET;
         showMessage("Game reset! Good luck!", 'win');
         updateDisplays();
     };
@@ -114,8 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleSpin = () => {
         if (isSpinning) return;
 
-        // If out of tokens, the spin button becomes a reset button.
-        if (tokens < 50) {
+        if (tokens < MIN_BET) {
             resetGame();
             return;
         }
