@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const minBet = 5;
     const maxBet = 50;
     const betStep = 5;
-    const winMultipliers = {
-        '🤖🤖🤖': 100,
-        '🧠🧠🧠': 50,
-        '⚡️⚡️⚡️': 30,
-        '💡💡💡': 20,
-        '🔥🔥🔥': 15,
-        '🧑‍💻🧑‍💻🧑‍💻': 10,
+    const winPayouts = {
+        '🤖🤖🤖': 1000,
+        '🧠🧠🧠': 500,
+        '⚡️⚡️⚡️': 300,
+        '💡💡💡': 200,
+        '🔥🔥🔥': 150,
+        '🧑‍💻🧑‍💻🧑‍💻': 100,
     };
     const comicalLines = [
         "My dog ate my tokens.",
@@ -137,13 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 spinResult[index] = randomSymbol;
 
                 if (index === reels.length - 1) {
-                    checkWin(spinResult, betAmount);
+                    checkWin(spinResult);
                     spinButton.disabled = false;
                     increaseBetButton.disabled = false;
                     decreaseBetButton.disabled = false;
                     isSpinning = false;
 
-                    if (tokens < betAmount) {
+                    if (tokens < currentBet) {
                         logMessage("Game over! You're out of tokens.");
                         spinButton.style.display = 'none';
                         resetButton.style.display = 'block';
@@ -156,17 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Checks for a win and updates the token count.
      * @param {string[]} result - The array of symbols from the spin.
-     * @param {number} betAmount - The amount of the bet.
      */
-    function checkWin(result, betAmount) {
+    function checkWin(result) {
         const resultString = result.join('');
         let win = 0;
 
-        if (winMultipliers[resultString]) {
-            win = betAmount * winMultipliers[resultString];
+        if (winPayouts[resultString]) {
+            win = winPayouts[resultString];
             logMessage(`Jackpot! You won ${win} tokens!`);
         } else if (result[0] === result[1] || result[1] === result[2]) {
-            win = betAmount * 2;
+            win = 25; 
             logMessage(`You won ${win} tokens!`);
         } else {
             logMessage('Try again!');
