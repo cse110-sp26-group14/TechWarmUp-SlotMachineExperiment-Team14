@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const SYMBOL_HEIGHT = 120; // Must match CSS .reel .symbol height
-    const SPIN_DURATION_MS = 500; // Base spin time
-    const REEL_SPIN_DELAY_MS = 100; // Delay between each reel stopping
     const MIN_BET = 5;
     const MAX_BET = 50;
     const BET_STEP = 5;
@@ -58,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = document.createElement('div');
             container.classList.add('symbol-container');
             // Pre-populate with random symbols for the initial view.
-            container.innerHTML = Array.from({ length: 3 }, () => `<div class="symbol">${getRandomSymbol().emoji}</div>`).join('');
+            container.innerHTML = `<div class="symbol">${getRandomSymbol().emoji}</div>`;
             reel.appendChild(container);
         });
 
@@ -158,28 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = reel.querySelector('.symbol-container');
             const finalSymbol = getRandomSymbol();
             
-            // Generate a long strip of random symbols for the spin animation.
-            const strip = Array.from({ length: 30 }, getRandomSymbol);
-            // Place the final symbol near the end of the strip.
-            strip[strip.length - 2] = finalSymbol;
-            
-            container.innerHTML = strip.map(s => `<div class="symbol">${s.emoji}</div>`).join('');
+            container.innerHTML = `<div class="symbol">${finalSymbol.emoji}</div>`;
 
-            // Instantly reset to the top without animation.
-            container.style.transition = 'none';
-            container.style.transform = 'translateY(0)';
-            
-            // Force a browser reflow to apply the reset.
-            reel.offsetHeight; 
-
-            // Set up the spin animation.
-            const spinDuration = SPIN_DURATION_MS + (index * REEL_SPIN_DELAY_MS);
-            const finalPosition = (strip.length - 2) * SYMBOL_HEIGHT;
-
-            container.style.transition = `transform ${spinDuration / 1000}s cubic-bezier(0.25, 0.1, 0.25, 1)`;
-            container.style.transform = `translateY(-${finalPosition}px)`;
-
-            setTimeout(() => resolve(finalSymbol), spinDuration);
+            resolve(finalSymbol);
         });
     };
 
@@ -190,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // A win is when all three symbols are the same.
         if (s1.id === s2.id && s2.id === s3.id) {
             const symbol = s1;
-            const winnings = symbol.payout * (betAmount / 10);
+            const winnings = symbol.payout;
             tokens += winnings;
             const winMessages = {
                 'AGI': 'AGI ACHIEVED! JACKPOT!',
