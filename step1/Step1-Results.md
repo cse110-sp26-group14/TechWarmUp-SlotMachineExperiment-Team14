@@ -46,4 +46,4 @@ Notable Observations:
 
 * UI/UX:  
   * successful candidates maintained clean, simple designs with smooth but not overly complex interactions. Functional consistency such as accurate feedback for wins, losses, and edge cases (e.g., insufficient tokens) was more important than visual complexity.   
-  * Additional features (like betting systems or themes) were viewed positively only when they were correctly implemented and did not compromise core functionality.
+  * Additional features (like betting systems or themes) were viewed positively only when they were correctly implemented and did not compromise core functionality. 

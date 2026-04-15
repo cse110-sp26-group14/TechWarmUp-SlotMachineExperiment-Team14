@@ -8,4 +8,4 @@ Candidate-007 (Chosen)
 Candidate-023
 
 * During the prompting changes, the animation tied to this candidate had been removed at the final step, meaning that while most of the functionality seems the same, the engaging part the AI had before is now missing.   
-* Internally, the AI created a separate spin function, but it never was added to the spin method’s main function, thus making the code redundant.
+* Internally, the AI created a separate spin function, but it never was added to the spin method’s main function, thus making the code redundant. 
