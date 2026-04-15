@@ -1,1 +1,1 @@
-*Insert Here*
+Give the slot machine a bold, modern look. Use a dark background (near-black or deep navy) with vibrant neon or glowing accents. Add a gradient or glow effect to the reel boxes. Make the title and buttons visually striking with rounded corners, shadows, and hover animations. The overall feel should resemble a real casino machine — dramatic and exciting rather than plain and flat. Remove the bet multiplier from win calculations — instead, use fixed payout values per symbol match regardless of bet amount.
