@@ -1,0 +1,3 @@
+The maximum bet amount for each spin should dynamically update to match the player's current token balance at the time of that spin. If a player has 30 tokens, the maximum they can bet is 30. The bet increment and decrement buttons should enforce this dynamic ceiling in real time, preventing the player from betting more than they currently own. For visuals, reduce neon intensity — use softer, muted accent colors with subtle highlights rather than harsh glowing effects. The design should feel sleek and modern rather than flashy.
+
+
