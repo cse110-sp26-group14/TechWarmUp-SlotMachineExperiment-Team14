@@ -9,4 +9,4 @@ Candidate-023 (Chosen)
 
 Candidate-045
 
-* The biggest visual difference in the output is the text pool. Instead of generic "Try again" lines, the machine now outputs messages that highlight the "soulless" or "error-prone" nature of AI.
+* The biggest visual difference in the output is the text pool. Instead of generic "Try again" lines, the machine now outputs messages that highlight the "soulless" or "error-prone" nature of AI. 
