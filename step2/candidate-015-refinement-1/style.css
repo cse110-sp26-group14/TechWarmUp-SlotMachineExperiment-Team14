@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     display: flex;
     justify-content: center;
@@ -8,24 +9,30 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* Main container for the slot machine */
 .slot-machine {
     text-align: center;
     border: 5px solid #0f0;
     padding: 20px;
-    border-radius: 10px;
-    background-color: #333;
+    border-radius: 15px;
+    background-color: #2c2c2c;
+    box-shadow: 0 0 20px #0f0;
 }
 
+/* Main heading style */
 h1 {
     color: #0f0;
+    text-shadow: 0 0 10px #0f0;
 }
 
+/* Container for the reels */
 .reels {
     display: flex;
     justify-content: center;
     margin: 20px 0;
 }
 
+/* Individual reel style */
 .reel {
     width: 100px;
     height: 100px;
@@ -37,22 +44,33 @@ h1 {
     align-items: center;
     background-color: #000;
     overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.reel.spinning {
-    animation: spin 0.1s infinite;
-}
-
-@keyframes spin {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
-}
-
-
+/* Controls container */
 .controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin-top: 20px;
 }
 
+/* Bet options styling */
+.bet-options {
+    font-size: 18px;
+}
+
+#bet-amount {
+    font-size: 16px;
+    background-color: #333;
+    color: #0f0;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Spin button style */
 #spin-button {
     padding: 10px 20px;
     font-size: 18px;
@@ -61,9 +79,45 @@ h1 {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
+/* Spin button hover effect */
+#spin-button:hover {
+    background-color: #39ff14; /* Brighter green on hover */
+}
+
+/* Disabled spin button style */
 #spin-button:disabled {
     background-color: #555;
     cursor: not-allowed;
+}
+
+/* Message and comical line styling */
+#message, #comical-line {
+    margin-top: 15px;
+    font-size: 16px;
+    min-height: 20px;
+}
+
+#comical-line {
+    font-style: italic;
+    color: #aaa;
+}
+
+/* Reset button style */
+#reset-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Class to hide elements */
+.hidden {
+    display: none;
 }
