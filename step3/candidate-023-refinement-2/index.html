@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        This is the metadata section of the HTML document.
+        - charset="UTF-8": Specifies the character encoding for the document.
+        - name="viewport": Makes the website responsive on different devices.
+        - title: The title that appears in the browser tab.
+        - link rel="stylesheet": Links the external CSS file to style the page.
+        - link rel="preconnect" and href="https://fonts.googleapis.com...": Imports a custom font from Google Fonts.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine - AI Token Burner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- This wrapper is used for centering the slot machine on the page. -->
+    <div class="slot-machine-wrapper">
+        <!-- This is the main container for the slot machine. -->
+        <div class="slot-machine">
+            <!-- The header contains the title of the game. -->
+            <header>
+                <h1>Slot Machine</h1>
+                <p>The best way to burn your tokens</p>
+            </header>
+
+            <!-- This section displays the player's current token balance and bet amount. -->
+            <div class="displays">
+                <div class="display-box">
+                    <span class="display-label">Tokens</span>
+                    <span id="token-balance">1000</span>
+                </div>
+                <div class="display-box">
+                    <span class="display-label">Bet</span>
+                    <span id="bet-amount">50</span>
+                </div>
+            </div>
+
+            <!-- This is where the spinning reels are displayed. -->
+            <div class="reels-container">
+                <div class="reels">
+                    <div class="reel"></div>
+                    <div class="reel"></div>
+                    <div class="reel"></div>
+                </div>
+                <!-- The win-line is a visual indicator of the winning line. -->
+                <div class="win-line"></div>
+            </div>
+
+            <!-- This area displays messages to the user (e.g., win/lose messages). -->
+            <div class="message-area">
+                <p id="message">Press SPIN to query the model.</p>
+            </div>
+
+            <!-- This section contains the controls for the game (spin and bet buttons). -->
+            <div class="controls">
+                <button id="bet-down" class="bet-btn" title="Decrease Bet">-</button>
+                <button id="spin-button" class="spin-btn">SPIN</button>
+                <button id="bet-up" class="bet-btn" title="Increase Bet">+</button>
+            </div>
+
+            <!-- The footer displays a comical line after each spin. -->
+            <footer>
+                <p id="comical-line">No real AI was harmed (or created) in this game.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- This line links the external JavaScript file, which contains the game's logic. -->
+    <script src="script.js"></script>
+</body>
+</html>
