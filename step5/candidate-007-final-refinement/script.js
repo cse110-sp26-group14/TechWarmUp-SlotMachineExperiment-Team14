@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const symbols = ['🤖', '🧠', '⚡️', '💡', '🔥', '🧑‍💻'];
     const initialTokens = 1000;
     const minBet = 5;
-    const maxBet = 50;
     const betStep = 5;
     const winPayouts = {
         '🤖🤖🤖': 1000,
@@ -81,10 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
      * Increases the bet amount.
      */
     function increaseBet() {
-        if (currentBet < maxBet) {
-            updateBetAmount(currentBet + betStep);
+        const newBet = Math.min(currentBet + betStep, tokens);
+        if (newBet > currentBet) {
+            updateBetAmount(newBet);
         } else {
-            logMessage(`Maximum bet is ${maxBet}.`);
+            logMessage("You can't bet more than your current tokens.");
         }
     }
 
