@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
     <title>AI Slot Machine</title>
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Main container for the slot machine -->
     <div class="slot-machine">
+        <!-- Main heading -->
         <h1>AI Tokenizer</h1>
+        <!-- Container for the reels -->
         <div class="reels">
             <div class="reel"></div>
             <div class="reel"></div>
             <div class="reel"></div>
         </div>
+        <!-- Container for game controls -->
         <div class="controls">
+            <!-- Bet selection -->
+            <div class="bet-options">
+                <label for="bet-amount">Bet:</label>
+                <select id="bet-amount">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+            <!-- Spin button -->
             <button id="spin-button">Spin</button>
+            <!-- Token balance display -->
             <p>Tokens: <span id="token-balance">100</span></p>
         </div>
+        <!-- Message display for win/loss and other info -->
+        <p id="message"></p>
+        <!-- Comical line display -->
+        <p id="comical-line"></p>
+        <!-- Reset button, hidden by default -->
+        <button id="reset-button" class="hidden">Play Again</button>
     </div>
+    <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
