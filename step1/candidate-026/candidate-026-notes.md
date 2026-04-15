@@ -5,9 +5,9 @@
 | **Run ID** | trace-98a9e771fadaabfd |
 | **Timestamp** | 2026-04-13T10:42:29.531Z |
 | **Model + version string** | gemini-2.5-pro|
-| **Input tokens** | 181244 |
-| **Output tokens** | 452 |
-| **Total tokens** | 181696 |
+| **Input tokens** | 50342 |
+| **Output tokens** | 4983 |
+| **Total tokens** | 55325 |
 | **Wall-clock time (s)** | 12.4s |
 | **Tool-reported time (s)** | 3.9s |
 | **Files produced** | index.html|
@@ -20,6 +20,7 @@
 * GPU OOM, RLHF. Visuals are cohesive (terminal green‑on‑black)
 
 * Spinning animation
+
 ## Code Quality Notes
 * Clean separation of concerns
 
