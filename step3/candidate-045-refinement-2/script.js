@@ -247,7 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newBet >= minBet && newBet <= maxBet) {
             betAmount = newBet;
             updateDisplay();
-            showMessage(`Bet adjusted to ${betAmount} AI Tokens.`, false);
         } else if (newBet < minBet) {
             showMessage(`Minimum bet is ${minBet} AI Tokens.`, true);
         } else {

@@ -59,20 +59,38 @@ h1 {
     margin-bottom: 20px;
 }
 
-.bet-options {
-    margin-bottom: 15px;
-    font-size: 16px;
+.bet-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.bet-options span {
-    margin-right: 10px;
+.bet-amount {
+    font-size: 20px;
+    margin: 0 15px;
     font-weight: bold;
 }
 
-.bet-options label {
-    margin-right: 10px;
+#increaseBet,
+#decreaseBet {
+    background-color: #00ff9d;
+    border: none;
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
 }
+
+#increaseBet:hover,
+#decreaseBet:hover {
+    background-color: #00e68a;
+}
+
 
 #spinButton, #resetButton {
     background-color: #00ff9d;
