@@ -1,17 +1,3 @@
-Run ID: candidate-023-refinement-1<br>
-Timestamp: 2026-04-14T20:19:00<br>
-Model + Version String: Gemini 2.5 Pro<br>
-Input Tokens: 174469<br>
-Output Tokens: 9882<br>
-Total Tokens: 184351<br>
-Wall-clock time (s): 9m 54s<br>
-Tool-reported time (s): 48.6s<br>
-Files produced: index.html, styles.css, script.js<br>
-Lines of code: 542<br>
-Runs in browser?: Yes<br>
-App Quality Notes: Has a unique spinning animation, also keeps track of last won jackpot amount and updates starting token amt<br>
-Code Quality Notes: code is still written very simple but the app quality feels much better than similar candidates with similar amount of codes written
-
 # Field Notes: candidate-039
 
 | Field | Value |
