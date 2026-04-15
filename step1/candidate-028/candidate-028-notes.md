@@ -19,7 +19,7 @@ Code Quality Notes	Clean separation into three files; uses CSS transform: transl
 | **Run ID** | trace-e3d9d829793ea8b4 |
 | **Timestamp** | 2026-04-13T10:48:53.454Z |
 | **Model + version string** | gemini-2.5-pro|
-| **Input tokens** | 78246 |
+| **Input tokens** | 30343 |
 | **Output tokens** | 5028 |
 | **Total tokens** | 83274 |
 | **Wall-clock time (s)** | 20.61s |
